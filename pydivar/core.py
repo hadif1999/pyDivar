@@ -19,7 +19,7 @@ async def get_posts_byCategory(start_page:int = 1, end_page:int = 5,
             all_posts_data.append({"token": token, "title": title,
                                    "link": link, "city_persian": city_per,
                                    "district_persian": district_per})
-    logger.debug(f"total number of fetched posts: {len(all_posts_data)} from pages: {range(start_page, end_page)}")
+    logger.debug(f"total number of fetched posts: {len(all_posts_data)} from pages: {list(range(start_page, end_page))}")
     return all_posts_data
 
 

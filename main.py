@@ -39,9 +39,10 @@ def main():
     output_path = config.general.output_path
     df = pd.DataFrame(result)
     df.to_csv(output_path, mode='a', header= not os.path.exists(output_path))
-    df_read = pd.read_excel(output_path)
+    df_read = pd.read_csv(output_path)
+    df_read.reset_index(drop=True, inplace=True)
     df_read.drop_duplicates(inplace=True)
-    df_read.to_csv(output_path, mode='a', header= not os.path.exists(output_path))
+    df_read.to_csv(output_path, mode='w')
     logger.success(f"result saved to {output_path}")
     
 if __name__ == "__main__":
