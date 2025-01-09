@@ -1,0 +1,18 @@
+{
+    "general":{
+        "base_url": "https://api.divar.ir",
+        "endpoints":{
+            "contact_info": "/v8/postcontact/web/contact_info_v2/{pid}",
+            "cities": "/v8/places/cities?level=all",
+            "categories": "/v8/postlist/w/categories",
+            "post_data": "/v8/posts-v2/web/{pid}",
+            "search_by_category": "/v8/postlist/w/search"
+        },
+        "AUTH_TOKEN": "******",
+        "timeout": 10,
+        "retries": 3
+        
+    }
+
+
+}
