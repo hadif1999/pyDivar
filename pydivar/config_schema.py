@@ -18,6 +18,11 @@ class GeneralConfig(BaseModel):
     timeout: int = 10
     retries: int = 3
     AUTH_TOKEN: str 
+    output_path: str
+    start_page: int 
+    end_page: int
+    category: str
+    city_codes: list[str|int]
 
 
 class Config(BaseSettings):
