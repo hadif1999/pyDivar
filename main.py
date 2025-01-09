@@ -26,7 +26,7 @@ async def runner():
         try: 
             post_info_data: dict[str, Any]  = await get_post_info(token)
         except Exception as e: 
-            logger.error(f"exception {e} thrown, returning all we could get, exiting")
+            logger.error(f"exception {e} thrown, returning all we got, exiting")
             break
         post_temp.update(post_info_data)
         logger.debug(f"done for {post_temp["link"]}")
@@ -38,10 +38,10 @@ def main():
     result = asyncio.run(runner())
     output_path = config.general.output_path
     df = pd.DataFrame(result)
-    df.to_excel(output_path, mode='a', header= not os.path.exists(output_path))
+    df.to_csv(output_path, mode='a', header= not os.path.exists(output_path))
     df_read = pd.read_excel(output_path)
     df_read.drop_duplicates(inplace=True)
-    df_read.to_excel(output_path, mode='a', header= not os.path.exists(output_path))
+    df_read.to_csv(output_path, mode='a', header= not os.path.exists(output_path))
     logger.success(f"result saved to {output_path}")
     
 if __name__ == "__main__":

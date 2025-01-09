@@ -19,7 +19,7 @@ async def get_posts_byCategory(start_page:int = 1, end_page:int = 5,
             all_posts_data.append({"token": token, "title": title,
                                    "link": link, "city_persian": city_per,
                                    "district_persian": district_per})
-    logger.debug(f"total number of fetched posts: {len(all_posts_data)}")
+    logger.debug(f"total number of fetched posts: {len(all_posts_data)} from pages: {range(start_page, end_page)}")
     return all_posts_data
 
 
@@ -62,7 +62,6 @@ def _get_descriptions(_post_detail: dict):
     descriptions = [widget["data"]["text"] for widget in widgets 
                     if widget['widget_type'] == 'DESCRIPTION_ROW']
     data = dict(zip(titles, descriptions))
-    logger.debug(data)
     return data
 
 

@@ -11,10 +11,10 @@
         "AUTH_TOKEN": "Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOiJlMWYyZTgzMy1jN2ZkLTQ0MDYtODcxYS04MzBkOGUyN2JjZTEiLCJ1c2VyLXR5cGUiOiJwZXJzb25hbCIsInVzZXItdHlwZS1mYSI6Ilx1MDY3ZVx1MDY0Nlx1MDY0NCBcdTA2MzRcdTA2MmVcdTA2MzVcdTA2Y2MiLCJ1aWQiOiJmYjhjYWE5Mi1hYmRmLTQxYzMtYjNhNy1kZTMzYjNmZDFjOTQiLCJ1c2VyIjoiMDkyMTgyODQ4NzciLCJpc3MiOiJhdXRoIiwidmVyaWZpZWRfdGltZSI6MTczNjI1NjUxMCwiaWF0IjoxNzM2MjU2NTEwLCJleHAiOjE3NDQwMzI1MTB9.FBYv1iQFoRs54GByGVRBAHfJ7xFqbD6y0s5gGHCSxUU",
         "timeout": 10,
         "retries": 3,
-        "output_path": "output.xlsx",
+        "output_path": "output.csv",
         "start_page": 1,
         "end_page": 3,
-        "category": "ROOT",
+        "category": "clothing",
         "city_codes": ["1"]
 
         
