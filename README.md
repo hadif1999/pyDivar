@@ -66,7 +66,9 @@ To use **pyDivar**, follow these steps:
 
 3. The result will be saved as an XLSX file to the path specified in `general.output_path` of the config.
 
-4. **Note:** If crawling stops due to an error, check Divar and select a post, then pass the CAPTCHA by clicking on "اطلاعات تماس" then try again.
+> **Note:** If crawling stops due to an error, check Divar and select a post, then pass the CAPTCHA by clicking on "اطلاعات تماس" then try again.
+> **Note 2:** If you are not in Iran, your IP will be banned after retrieving approximately 1 page (around 24 phone numbers).
+> If you are in Iran, you can retrieve around 8 pages before your IP gets banned. After that, you will need to change your IP. The ban duration on Divar is approximately 24 hours.
 
 ## Contributing
 
