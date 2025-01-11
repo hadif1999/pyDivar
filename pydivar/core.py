@@ -2,6 +2,9 @@ from httpx import Response
 import json
 from loguru import logger
 from typing import Any, Annotated
+from pydivar.config_schema import ConfigManager
+
+config = ConfigManager.get_config()
 
 
 async def get_posts_byCategory(start_page:int = 1, end_page:int = 5, 
@@ -163,6 +166,7 @@ async def get_post_info(token: str)-> dict[str, Any]:
     phone = await get_phone_number(token)
     post_data = {"phone": phone, "lat":lat, "long":long,
                  "price":price, "images": images, 
+                 "input_category": config.general.category,
                  "categories":categories, "descriptions": descs, 
                  "description": seo_desc, "features": features}
     return post_data
