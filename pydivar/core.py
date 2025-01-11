@@ -8,7 +8,7 @@ async def get_posts_byCategory(start_page:int = 1, end_page:int = 5,
                          city_codes:list[int|str] = ["1"], category: str = "ROOT")-> list[dict[str, Any]]:
     from pydivar._core import _get_posts_byCategory
     all_posts_data = []
-    for page_num in range(start_page, end_page):
+    for page_num in range(start_page, end_page+1):
         posts = await _get_posts_byCategory(page_num, category, city_codes)
         for widget in posts["list_widgets"]:
             post = widget['data']
@@ -148,7 +148,8 @@ async def get_phone_number(pid:str, throw_exception: bool = False):
 async def get_post_info(token: str)-> dict[str, Any]:
     from pydivar._core import _get_post_info
     post_detail = await _get_post_info(token)
-    post_seo_detail = post_detail["seo"]["post_seo_schema"]
+    post_seo_detail: dict = post_detail["seo"]["post_seo_schema"]
+    seo_desc = post_seo_detail.get("description")
     geo_data = post_seo_detail.get("geo")
     if geo_data: 
         lat = post_seo_detail.get("latitude")
@@ -160,9 +161,10 @@ async def get_post_info(token: str)-> dict[str, Any]:
     descs = _get_descriptions(post_detail)
     features = _get_features_data(post_detail)
     phone = await get_phone_number(token)
-    post_data = {"lat":lat, "long":long, "price":price, "images": images, 
-                 "categories":categories, "descriptions": descs,
-                 "features": features, "phone": phone}
+    post_data = {"phone": phone, "lat":lat, "long":long,
+                 "price":price, "images": images, 
+                 "categories":categories, "descriptions": descs, 
+                 "description": seo_desc, "features": features}
     return post_data
     
 

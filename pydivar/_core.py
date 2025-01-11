@@ -4,7 +4,7 @@ from pydivar.config_schema import ConfigManager
 config = ConfigManager.get_config()
 
 _request = AsyncRequest(retries=config.general.retries, timeout=config.general.timeout,
-                        BaseUrl=config.general.base_url)
+                        BaseUrl=config.general.base_url, validate_response=False)
 
 
 async def _get_posts_byCategory(page: int = 1, category: str = "ROOT", 

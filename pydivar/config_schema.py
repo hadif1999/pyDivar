@@ -23,6 +23,7 @@ class GeneralConfig(BaseModel):
     end_page: int
     category: str
     city_codes: list[str|int]
+    with_phone_number_only: bool
 
 
 class Config(BaseSettings):
@@ -51,6 +52,11 @@ class ConfigManager:
             with open(_path, 'r') as file:
                 logger.debug(f"reading config file with {path=}")
                 _config = Config.model_validate_json(file.read())
+                _category = _config.general.category
+                _config.general.output_path = _config.general.output_path.format(category=_category)
+                path_str = _config.general.output_path
+                if "xlsx" not in path_str or not pathlib.Path(path_str).parent.exists():
+                    raise ValueError("output file must be in 'xlsx' file format")
                 __class__.__CONFIG = _config
                 return _config
             

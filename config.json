@@ -8,16 +8,15 @@
             "post_data": "/v8/posts-v2/web/{pid}",
             "search_by_category": "/v8/postlist/w/search"
         },
-        "AUTH_TOKEN": "Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOiJlMWYyZTgzMy1jN2ZkLTQ0MDYtODcxYS04MzBkOGUyN2JjZTEiLCJ1c2VyLXR5cGUiOiJwZXJzb25hbCIsInVzZXItdHlwZS1mYSI6Ilx1MDY3ZVx1MDY0Nlx1MDY0NCBcdTA2MzRcdTA2MmVcdTA2MzVcdTA2Y2MiLCJ1aWQiOiJmYjhjYWE5Mi1hYmRmLTQxYzMtYjNhNy1kZTMzYjNmZDFjOTQiLCJ1c2VyIjoiMDkyMTgyODQ4NzciLCJpc3MiOiJhdXRoIiwidmVyaWZpZWRfdGltZSI6MTczNjI1NjUxMCwiaWF0IjoxNzM2MjU2NTEwLCJleHAiOjE3NDQwMzI1MTB9.FBYv1iQFoRs54GByGVRBAHfJ7xFqbD6y0s5gGHCSxUU",
+        "AUTH_TOKEN": "******",
         "timeout": 10,
         "retries": 3,
-        "output_path": "output.csv",
+        "output_path": "output_{category}.xlsx",
         "start_page": 1,
         "end_page": 10,
         "category": "clothing",
-        "city_codes": ["1"]
-
-        
+        "city_codes": ["1"],
+        "with_phone_number_only": true
     }
 
 
