@@ -19,8 +19,8 @@ async def get_posts_byCategory(start_page:int = 1, end_page:int = 5,
             district_per = post["action"]["payload"]["web_info"]["district_persian"]
             city_per = post["action"]["payload"]["web_info"]["city_persian"]
             link = f"https://divar.ir/v/{title}/{token}"
-            all_posts_data.append({"token": token, "title": title,
-                                   "link": link, "city_persian": city_per,
+            all_posts_data.append({"title": title, "link": link,
+                                   "token": token, "city_persian": city_per,
                                    "district_persian": district_per})
     logger.debug(f"total number of fetched posts: {len(all_posts_data)} from pages: {list(range(start_page, end_page))}")
     return all_posts_data

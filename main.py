@@ -65,6 +65,8 @@ def main():
     if config.general.with_phone_number_only: 
         df_read = df_read[df_read["phone"].astype("string").str.isalnum()]
         df_read.reset_index(drop=True, inplace=True)
+    cols = config.general.columns
+    if cols: df_read = df_read[cols]
     ########
     df_read.to_excel(output_path, index=False,
                      header=True)

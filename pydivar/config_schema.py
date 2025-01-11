@@ -19,11 +19,12 @@ class GeneralConfig(BaseModel):
     retries: int = 3
     AUTH_TOKEN: str 
     output_path: str
-    start_page: int 
-    end_page: int
+    start_page: int = 1
+    end_page: int = 10
     category: str
     city_codes: list[str|int]
-    with_phone_number_only: bool
+    with_phone_number_only: bool = False
+    columns: list[str] | None = None
 
 
 class Config(BaseSettings):
@@ -57,6 +58,8 @@ class ConfigManager:
                 path_str = _config.general.output_path
                 if "xlsx" not in path_str or not pathlib.Path(path_str).parent.exists():
                     raise ValueError("output file must be in 'xlsx' file format")
+                else: 
+                    os.makedirs(pathlib.Path(path_str).parent, exist_ok=True)
                 __class__.__CONFIG = _config
                 return _config
             
