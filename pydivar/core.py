@@ -4,8 +4,6 @@ from loguru import logger
 from typing import Any, Annotated
 from pydivar.config_schema import ConfigManager
 
-config = ConfigManager.get_config()
-
 
 async def get_posts_byCategory(start_page:int = 1, end_page:int = 5, 
                          city_codes:list[int|str] = ["1"], category: str = "ROOT")-> list[dict[str, Any]]:
@@ -150,6 +148,7 @@ async def get_phone_number(pid:str, throw_exception: bool = False):
 
 async def get_post_info(token: str)-> dict[str, Any]:
     from pydivar._core import _get_post_info
+    config = ConfigManager.get_config()
     post_detail = await _get_post_info(token)
     post_seo_detail: dict = post_detail["seo"]["post_seo_schema"]
     seo_desc = post_seo_detail.get("description")
