@@ -1,7 +1,3 @@
-Here is a template for a README file for your `pyDivar` repository:
-
----
-
 # pyDivar
 
 **pyDivar** - best divar crawler.
