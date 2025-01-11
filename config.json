@@ -16,12 +16,7 @@
         "end_page": 10,
         "category": "clothing",
         "city_codes": ["1"],
-        "with_phone_number_only": true,
-        "columns": ["phone", "title", "link",
-                    "city_persian", "district_persian", "token",
-                    "lat", "long", "price",
-                    "images", "input_category", "categories",
-                     "description", "descriptions", "features"]
+        "with_phone_number_only": true
     }
 
 

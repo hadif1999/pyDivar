@@ -44,7 +44,7 @@ async def runner():
             else: 
                 logger.error(f"exception {e} thrown, ignoring post {post["link"]}")
                 continue
-        post_temp.update(post_info_data)
+        post_temp = {**post_info_data, **post_temp}
         logger.debug(f"done for {post_temp["link"]}")
         fetched_posts.append(post_temp)
     logger.info(f"{len(fetched_posts)} posts fetched from total {len(posts)}")
@@ -65,8 +65,6 @@ def main():
     if config.general.with_phone_number_only: 
         df_read = df_read[df_read["phone"].astype("string").str.isalnum()]
         df_read.reset_index(drop=True, inplace=True)
-    cols = config.general.columns
-    if cols: df_read = df_read[cols]
     ########
     df_read.to_excel(output_path, index=False,
                      header=True)

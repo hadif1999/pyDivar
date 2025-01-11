@@ -24,7 +24,6 @@ class GeneralConfig(BaseModel):
     category: str
     city_codes: list[str|int]
     with_phone_number_only: bool = False
-    columns: list[str] | None = None
 
 
 class Config(BaseSettings):
