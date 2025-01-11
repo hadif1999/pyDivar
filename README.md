@@ -1,6 +1,6 @@
 # pyDivar
 
-**pyDivar** - best divar crawler.
+**pyDivar** - The best divar crawler ever.
 
 ## Table of Contents
 
