@@ -8,7 +8,7 @@
             "post_data": "/v8/posts-v2/web/{pid}",
             "search_by_category": "/v8/postlist/w/search"
         },
-        "AUTH_TOKEN": "****",
+        "AUTH_TOKEN": "***********",
         "timeout": 10,
         "retries": 3,
         "output_path": "output_{category}.xlsx",

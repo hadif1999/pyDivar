@@ -1,15 +1,19 @@
 # pyDivar
 
+![pyDivar Icon](pics/icon.jpg)
+
 **pyDivar** - The best divar crawler ever.
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [pyDivar](#pydivar)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Introduction
 
@@ -42,13 +46,23 @@ To install **pyDivar**, follow these steps:
 
 ## Usage
 
-To use **pyDivar**, run the following command:
+To use **pyDivar**, follow these steps:
 
-```sh
-python main.py
-```
+1. Change the config as per your need:
+    1.1. Login to Divar in your browser.
+    1.2. Open the inspect tool and navigate to the network section.
+    1.3. Copy the content of the "Authorization" header from the response header of one of the pages that contains this header.
+    1.4. Add this to `config.json` as the `general.AUTH_TOKEN` field.
+    1.5. Change `general.category` to your desired category (find this category by copying from the URL of Divar when selecting a category).
 
-You can customize the crawling settings by modifying the `config.py` file.
+2. Run the following command:
+    ```sh
+    python3 main.py
+    ```
+
+3. The result will be saved as an XLSX file to the path specified in `general.output_path` of the config.
+
+4. **Note:** If crawling stops due to an error, check Divar and select a post, then pass the CAPTCHA by clicking on "اطلاعات تماس".
 
 ## Contributing
 
