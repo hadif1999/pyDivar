@@ -50,11 +50,15 @@ To use **pyDivar**, follow these steps:
 
 1. Change the config as per your need:
     1.1. Login to Divar in your browser.
+    <br>
     1.2. Open the inspect tool and navigate to the network section.
+    <br>
     1.3. Copy the content of the "Authorization" header from the response header of one of the pages that contains this header.
+    <br>
     1.4. Add this to `config.json` as the `general.AUTH_TOKEN` field.
+    <br>
     1.5. Change `general.category` to your desired category (find this category by copying from the URL of Divar when selecting a category).
-
+    <br>
 2. Run the following command:
     ```sh
     python3 main.py
