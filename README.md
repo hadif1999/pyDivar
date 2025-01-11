@@ -66,7 +66,7 @@ To use **pyDivar**, follow these steps:
 
 3. The result will be saved as an XLSX file to the path specified in `general.output_path` of the config.
 
-4. **Note:** If crawling stops due to an error, check Divar and select a post, then pass the CAPTCHA by clicking on "اطلاعات تماس".
+4. **Note:** If crawling stops due to an error, check Divar and select a post, then pass the CAPTCHA by clicking on "اطلاعات تماس" then try again.
 
 ## Contributing
 
