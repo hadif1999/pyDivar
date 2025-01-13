@@ -5,6 +5,7 @@ from typing import Any, Annotated
 from pydivar.config_schema import ConfigManager
 
 
+@logger.catch
 async def get_posts_byCategory(start_page:int = 1, end_page:int = 5, 
                          city_codes:list[int|str] = ["1"], category: str = "ROOT")-> list[dict[str, Any]]:
     from pydivar._core import _get_posts_byCategory
@@ -22,6 +23,7 @@ async def get_posts_byCategory(start_page:int = 1, end_page:int = 5,
                                    "district_persian": district_per})
     logger.debug(f"total number of fetched posts: {len(all_posts_data)} from pages: {list(range(start_page, end_page))}")
     return all_posts_data
+    
 
 
 def _get_section(section_name: str, post_detail: dict)-> dict|None:
@@ -129,7 +131,7 @@ async def get_contact_info(pid:str, throw_exception: bool = False):
     try: 
         json_response = _decode_response(response)
     except Exception as e:
-        logger.error(f"exception {e} thrown")
+        logger.warning(f"exception {e} thrown")
         if throw_exception: raise e
         json_response = response.json()
     return json_response
@@ -137,6 +139,8 @@ async def get_contact_info(pid:str, throw_exception: bool = False):
 
 async def get_phone_number(pid:str, throw_exception: bool = False):
     contact_info = await get_contact_info(pid, throw_exception)
+    if "widget_list" not in contact_info: 
+        logger.debug(f"'widget_list' not found in contact_info response, maybe you need to pass CAPTCHA first, response={contact_info}")
     for widget in contact_info["widget_list"]:
         if "CALL_PHONE" in json.dumps(widget):
             phone_number = widget["data"]["action"]["payload"]["phone_number"]
