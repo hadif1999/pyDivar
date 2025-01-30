@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 from typing import Optional, Any
 import os
 from loguru import logger
+import datetime as dt
 
 class EndpointsConfig(BaseModel):
     contact_info: str = "/v8/postcontact/web/contact_info_v2/{pid}"
@@ -37,7 +38,8 @@ class ConfigManager:
     
     
     @staticmethod
-    def read_config_file(path:str, make_IfNotExist: bool = False) -> Config:
+    def read_config_file(path:str, make_IfNotExist: bool = False, 
+                         datetime_format: str = "%Y-%m-%d") -> Config:
         import pathlib
         _path = pathlib.Path(path)
         if not _path.exists() and make_IfNotExist: # creating if not exists
@@ -53,7 +55,11 @@ class ConfigManager:
                 logger.debug(f"reading config file with {path=}")
                 _config = Config.model_validate_json(file.read())
                 _category = _config.general.category
-                _config.general.output_path = _config.general.output_path.format(category=_category)
+                dt_now_str = dt.datetime.now().strftime(datetime_format)
+                _config.general.output_path = _config.general.output_path.format(category=_category,
+                                                                                 datetime=dt_now_str,
+                                                                                 date=dt_now_str,
+                                                                                 time=dt_now_str)
                 path_str = _config.general.output_path
                 if "xlsx" not in path_str or not pathlib.Path(path_str).parent.exists():
                     raise ValueError("output file must be in 'xlsx' file format")

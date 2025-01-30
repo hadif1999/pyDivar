@@ -8,7 +8,7 @@
             "post_data": "/v8/posts-v2/web/{pid}",
             "search_by_category": "/v8/postlist/w/search"
         },
-        "AUTH_TOKEN": "*****************",
+        "AUTH_TOKEN": "Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOiJjM2ZmZGFjYy1iYmI5LTQyNWEtYmU5Mi0zZGQ3MjAzOWExODQiLCJ1c2VyLXR5cGUiOiJwZXJzb25hbCIsInVzZXItdHlwZS1mYSI6Ilx1MDY3ZVx1MDY0Nlx1MDY0NCBcdTA2MzRcdTA2MmVcdTA2MzVcdTA2Y2MiLCJ1aWQiOiJmYjhjYWE5Mi1hYmRmLTQxYzMtYjNhNy1kZTMzYjNmZDFjOTQiLCJ1c2VyIjoiMDkyMTgyODQ4NzciLCJpc3MiOiJhdXRoIiwidmVyaWZpZWRfdGltZSI6MTczNjc5NDcxMiwiaWF0IjoxNzM2Nzk0NzEyLCJleHAiOjE3NDQ1NzA3MTJ9.1eLDgIZgOzV0JAULbyeIxq-3wHXBAHAR1BV1Tof27vI",
         "timeout": 10,
         "retries": 3,
         "output_path": "output_{category}.xlsx",
